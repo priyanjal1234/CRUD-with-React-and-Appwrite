@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import userService from "./appwrite/Users";
 
 const App = () => {
-  const [users, setusers] = useState([])
+  const [users, setusers] = useState([]);
   const [formdata, setformdata] = useState({
     name: "",
     email: "",
     password: "",
   });
+
+  const [hello, sethello] = useState('hello')
 
   async function fetchAllUsers() {
     let allUsers = await userService.getAllUsers()
@@ -55,6 +57,7 @@ const App = () => {
   return (
     <div className="w-full h-screen bg-zinc-900 text-white p-10">
       <h1 className="text-3xl font-semibold mb-4">Create Data</h1>
+      {hello}
       <form onSubmit={handleSubmit}>
         <input
           onChange={handleChange}
